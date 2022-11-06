@@ -1,0 +1,5 @@
+  <%# <input id="browser_photo_id" type="text" value="<%=@the_photo.id%>" name="input_photo_id"> %>
+
+
+
+  <textarea id="browser_photo_id="input_photo_id" placeholder="<%=@the_photo.id%>"></textarea>

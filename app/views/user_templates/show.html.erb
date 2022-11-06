@@ -4,15 +4,22 @@
 <%#@the_user.inspect%>
 <dl>
 
-<dt><%=@the_user.id%></dt>
+<dt>ID</dt>
 
-<dd>42</dd>
+<dd><%=@the_user.id%></dd>
 <dt>Edit user<dt>
-<dd>User form goes here<dd>
+    <form action="/update_user/<%= @the_user.id %>">
+      <label for="new_name">Username</label>
+      <input id="new_name" type="text" name="new_name" placeholder="Enter a username..." value="<%=@the_user.username%>">
 
+     <button>Update user</button>
 </dl>
 
-<h2><%=@the_user.own_photos.size%></h2>
+
+
+
+
+<h2>Own photos (<%=@the_user.own_photos.size%>)</h2>
 
 </dl>
 <table border ="1">

@@ -1,7 +1,24 @@
 <h1>List of photos</h1>
 
+<hr>
+
+<form action="/insert_photo">
+
+<label for="image_box">Image</label>
+<input id="image_box" name="query_image">
+
+<label for="caption_box">Caption</label>
+<textarea id="caption_box" name="query_caption"></textarea>
 
 
+<label for ="owner_id_box">Owner ID</label>
+<input id="owner_id_box" name="query_owner_id">
+
+<button>Add photo</button>
+
+</form>
+
+<hr>
 <table border="1">
   <tr>
     <th>Image</th>
@@ -11,32 +28,28 @@
     <th></th>
   </tr>
 
-
-<% @list_of_photos.each do |a_photo| %>
-
+<% @list_of_photos.each do |a_photo|%>
   <tr>
     <td>
-      <img src="https://robohash.org/dolorehicincidunt.png?size=300x300&amp;set=set1">
+      <img src="<% a_photo.image %>">
     </td>
 
     <td>
-      Once you’ve accepted your flaws, no one can use them against you.
+      <%= a_photo.caption %>
     </td>
 
     <td>
-      catherina
+      <%= a_photo.poster.username %>
     </td>
 
     <td>
-      2019-04-27 11:56:39 UTC
+      <%= a_photo.created_at %>
     </td>
 
     <td>
-      <a href="/photos/777">
-        Show details
-      </a>
+      <a href="/photos/<%= a_photo.id%>">
+        Show details</a>
     </td>
   </tr>
-
-  <% end%>
+  <% end %>
   </table>
